@@ -113,3 +113,39 @@ export const socials = [
     { id: '4', svg: twitter, label: 'twitter', path: "https://twitter.com/ddpl_india" },
     { id: '5', svg: youtube, label: 'youtube', path: "https://www.youtube.com/@devpratikdevelopers" }
 ];
+
+export const footerNav1 = [
+    {
+        id: '1',
+        displayName: "Contact Us",
+        path: ''
+    },
+    {
+        id: '2',
+        displayName: "Guiding Principles",
+        path: ''
+    },
+    {
+        id: '3',
+        displayName: "Sustainability",
+        path: ''
+    },
+    {
+        id: '4',
+        displayName: "Diversity",
+        path: ''
+    }
+]
+
+export const footerNav2 = [
+    {
+        id: '1',
+        displayName: "Privacy Policy",
+        path: ''
+    },
+    {
+        id: '2',
+        displayName: "Terms of Service",
+        path: ''
+    },
+]
