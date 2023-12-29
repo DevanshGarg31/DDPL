@@ -5,9 +5,9 @@ import { navigations, navigations2, socials } from '@/app/constants/data';
 import { Variants, motion } from 'framer-motion';
 import Logo from '@/app/assets/images/logo.png';
 import { menuItemType } from '../(Home)/types';
+import { FaPlus } from "react-icons/fa6";
 import Image from 'next/image';
 import Link from 'next/link';
-
 
 
 const Header = () => {
@@ -118,7 +118,7 @@ const Header = () => {
                     ))}
                 </ul>
 
-                {selectedMenu?.sub &&
+                {selectedMenu?.sub && !nav &&
                     <motion.div
                         initial={{ opacity: 0, height: 0 }}
                         animate={{ opacity: selectedMenu?.sub ? 1 : 0, height: selectedMenu?.sub ? 400 : 0 }}
@@ -191,10 +191,41 @@ const Header = () => {
                         </svg>
                     </div>
                     {navigations.map(nav => (
-                        <div key={nav.id} className="p-4">
-                            <Link className={`'font-medium text-[16px]'} py-4 text-my-black `} href={nav.path}>
-                                {nav.label}</Link>
-                        </div>
+                        <>
+                            <div key={nav.id} className="p-4 flex justify-between items-center hover:cursor-pointer" onClick={() => { setSelectedMenu(nav); setVisibleItems(0) }}>
+                                <Link className={`font-medium text-[16px] py-3 text-my-black `} href={nav.path}>
+                                    {nav.label}</Link>
+                                {nav.sub && <FaPlus />}
+                            </div>
+                            {selectedMenu?.sub && selectedMenu.id === nav.id &&
+                                < motion.div
+                                    initial={{ opacity: 0, }}
+                                    animate={{ opacity: selectedMenu?.sub ? 1 : 0, }}
+                                    transition={{ duration: 0.3, ease: 'easeIn' }}
+                                    ref={subMenuRef} className={` w-full h-fit bg-my-black items-center justify-center py-4 px-[10%]`}
+                                >
+                                    <div />
+                                    <div
+                                        className='flex flex-col gap-8'>
+                                        {selectedMenu.sub.map((item, index
+                                        ) => {
+                                            return (
+                                                <div
+                                                    key={item.id}
+
+                                                >
+                                                    <Link className='text-my-white hover:underline hover:duration-500'
+                                                        href={item.link}>
+                                                        {item.displayName}</Link>
+                                                </div>
+                                            )
+                                        })}
+                                    </div>
+                                    <div />
+                                    <div />
+                                </motion.div >
+                            }
+                        </>
                     ))}
 
                 </ul>
