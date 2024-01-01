@@ -13,7 +13,7 @@ const Footer = () => {
                     {footerNav1.map((item) => {
                         return (
                             <Link
-                                className='text-my-white text-[16px] hover:text-primary'
+                                className='text-my-white lg:text-[14px] text-[12px] hover:text-primary'
                                 id={item.id} href={item.path}>{item.displayName}</Link>
                         )
                     })}
@@ -35,10 +35,10 @@ const Footer = () => {
             </div>
             <div>
                 <Link href='#' className='flex gap-3 justify-end items-center hover:cursor-pointer'>
-                    <p className='text-my-white uppercase hover:text-primary text-[14px]'>Top of page</p>
+                    <p className='text-my-white uppercase hover:text-primary text-[12px]'>Top of page</p>
                     <BsArrowUpCircle className='text-white hover:text-primary' size={23} />
                 </Link>
-                <div className='flex gap-3 text-[#767676] text-[14px] items-center lg:justify-end mt-7'>
+                <div className='flex gap-3 text-[#767676] lg:text-[12px] text-[10px] items-center lg:justify-end mt-7'>
                     <p>© Devpratik Developers Private Limited, All Rights Reserved "</p>
                     {footerNav2.map((item) => {
                         return (

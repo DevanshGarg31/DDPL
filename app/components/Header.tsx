@@ -87,7 +87,7 @@ const Header = () => {
     return (
         <div className="flex flex-col sticky top-0 z-40 bg-primary">
 
-            <header className={`flex items-center md:justify-start md:gap-10 justify-between ${isScrolled ? ' shadow-sm shadow-slate-400 p-1' : 'p-2'} lg:px-[10%] bg-my-white`}>
+            <header className={`flex items-center md:justify-start md:gap-6 justify-between ${isScrolled ? ' shadow-sm shadow-slate-400 p-1' : 'p-2'} lg:px-[10%] bg-my-white`}>
                 <div onClick={handleNav} className='block md:hidden float-start'>
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="black" className="w-6 h-6">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
@@ -104,7 +104,7 @@ const Header = () => {
                     {navigations.map(nav => (
                         <Link onClick={() => { setSelectedMenu(nav); setVisibleItems(0) }}
                             key={nav.id}
-                            className={` font-medium  ${isScrolled ? 'text-[16px]' : 'text-[18px]'}  py-6 text-my-black hover:text-primary transition-all duration-500 flex items-center gap-2 justify-center`}
+                            className={` font-medium  ${isScrolled ? 'text-[14px]' : 'text-[16px]'}  py-6 text-my-black hover:text-primary transition-all duration-500 flex items-center gap-2 justify-center`}
                             href={nav.path}
                         >
                             {nav.label}
@@ -154,7 +154,7 @@ const Header = () => {
                     {navigations2.map(nav => (
                         <Link onClick={() => { }}
                             key={nav.id}
-                            className={` font-medium  ${isScrolled ? 'text-[16px]' : 'text-[18px]'}  py-6 text-my-black hover:text-primary transition-all duration-500 flex items-center gap-2`}
+                            className={` font-medium  ${isScrolled ? 'text-[14px]' : 'text-[16px]'}  py-6 text-my-black hover:text-primary transition-all duration-500 flex items-center gap-2`}
                             href={nav.path}
                         >
                             {nav.label}
@@ -193,7 +193,7 @@ const Header = () => {
                     {navigations.map(nav => (
                         <>
                             <div key={nav.id} className="p-4 flex justify-between items-center hover:cursor-pointer" onClick={() => { setSelectedMenu(nav); setVisibleItems(0) }}>
-                                <Link className={`font-medium text-[16px] py-3 text-my-black `} href={nav.path}>
+                                <Link className={`font-medium text-[14px] py-3 text-my-black `} href={nav.path}>
                                     {nav.label}</Link>
                                 {nav.sub && <FaPlus />}
                             </div>
