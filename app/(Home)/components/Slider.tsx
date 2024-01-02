@@ -32,6 +32,30 @@ function Slider() {
         setActiveSlide(swiper.realIndex);
     };
 
+    const wrapVariants: any = {
+        indeterminate: {
+            x: ["-50%", "50%"],
+            transition: {
+                ease: [0, 0, 0, 0],
+                repeat: Infinity,
+                repeatType: "loop",
+                duration: 2
+            }
+        }
+    };
+
+    const barVariants: any = {
+        indeterminate: {
+            width: ["0%", "100%", "0%"],
+            transition: {
+                ease: [0, 0, 0, 0],
+                repeat: Infinity,
+                repeatType: "loop",
+                duration: 2
+            }
+        }
+    };
+
     return (
         <Swiper
             onSlideChange={(swiper) => handleSlideChange(swiper)}
@@ -71,32 +95,31 @@ function Slider() {
                                 </div>
                                 <button className="text-white text-[40px] mt-16">I’m interested in </button>
 
-                                <div style={{ height: '10vh', display: 'flex', bottom: '40px', position: 'absolute' }}>
-                                    <div style={{ height: '10vh', width: '0.5px', opacity: '0.6', backgroundColor: 'white', position: 'absolute' }} />
-                                    <motion.div
-                                        style={{
-                                            width: '2px',
-                                            background: 'white',
-                                            position: 'relative',
-                                            top: 0,
-                                        }}
-                                        initial={{ height: 0, top: '100%' }} // Initial height set to 0 and position top to 100% (bottom)
-                                        animate={{ height: '100%', top: 0 }} // Animate height to 100% (top to bottom)
-                                        transition={{
-                                            duration: 1,
-                                            repeat: Infinity,
-                                            repeatType: 'reverse',
-                                            ease: 'linear',
-                                        }}
-                                    />
-                                    <p className="text-white ml-5 uppercase text-[16px] w-[100px]">Scroll to Explore </p>
+                                <div className='flex absolute bottom-[74px] items-end -ml-8'>
+                                    <div className='rotate-90'>
+                                        <div className="h-[1.5px] bg-slate-300 overflow-hidden w-[70px] rounded-[4px]">
+                                            <motion.div
+                                                className="flex justify-center "
+                                                animate="indeterminate"
+                                                variants={wrapVariants}
+                                            >
+                                                <motion.div
+                                                    className="h-[1.5px] rounded-[4px] bg-white"
+                                                    animate="indeterminate"
+                                                    variants={barVariants}
+                                                />
+                                            </motion.div>
+                                        </div>
+                                    </div>
+                                    <p className="text-white uppercase -ml-4 text-[12px] w-[100px]">Scroll to Explore </p>
                                 </div>
+
                             </div>
                         </div>
-                    </SwiperSlide>
+                    </SwiperSlide >
                 )
             })}
-        </Swiper>
+        </Swiper >
     )
 }
 
