@@ -4,6 +4,11 @@ import linkedin from '@/app/assets/icons/linkedin.svg';
 import twitter from '@/app/assets/icons/twitterx.svg';
 import youtube from '@/app/assets/icons/youtube.svg';
 
+import strip1 from '@/app/assets/images/empanelments_hdfcbank.png';
+import strip2 from '@/app/assets/images/empanelments_axisbank.png';
+import strip3 from '@/app/assets/images/awards_nagarnigam.png';
+import strip4 from '@/app/assets/images/awards_jda.png';
+
 export const navigations = [
     {
         id: '1',
@@ -182,3 +187,48 @@ export const cards = [
         desc: "Hi! The following is our **Construction Service**. If you want to learn more about this service, click on the **Know More Button** below. If you want to play with Markdown, you can edit me. Once you have finished with me, you can create new files by opening the **file explorer** on the left corner of the navigation bar."
     }
 ]
+
+export const stripImgs = [
+    {
+        id: '1',
+        src: strip1,
+        alt: "HDFC Bank",
+    },
+    {
+        id: '2',
+        src: strip2,
+        alt: 'Axis Bank'
+    },
+    {
+        id: '3',
+        src: strip3,
+        alt: 'Nagar Nigam Award'
+    },
+    {
+        id: '4',
+        src: strip4,
+        alt: 'JDA Award'
+    },
+    {
+        id: '5',
+        src: strip1,
+        alt: 'HDFC Bank 2'
+    },
+    {
+        id: '6',
+        src: strip2,
+        alt: 'Axis Bank 2'
+    },
+    {
+        id: '7',
+        src: strip3,
+        alt: 'Nagar Nigam Award 2'
+    },
+    {
+        id: '8',
+        src: strip4,
+        alt: 'JDA Award 2'
+    },
+
+    // Add more image URLs as needed
+];
