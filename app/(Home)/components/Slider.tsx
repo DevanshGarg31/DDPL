@@ -80,11 +80,11 @@ function Slider() {
                                 backgroundSize: 'cover'
                             }}>
                             <div className="pt-32 px-3 lg:px-[10%]">
-                                <h1 className="lg:text-[4em] text-[2em] text-white">Designing Spaces, Defining Lifestyles - Your Vision, Our Expertise, </h1>
+                                <h1 className="lg:text-[3.5em] text-[2em] text-white leading-[120px]">Designing Spaces, Defining Lifestyles - Your Vision, Our Expertise, </h1>
                                 <div className="flex gap-3">
-                                    <h1 className="lg:text-[4em] text-[2em] text-white font-bold">The</h1>
+                                    <h1 className="lg:text-[3.5em] text-[2em] text-white font-bold leading-[120px]">The</h1>
                                     <motion.div
-                                        className="lg:text-[4em] text-[2em] text-white font-bold"
+                                        className="lg:text-[3.5em] text-[2em] text-white font-bold leading-[120px]"
                                         initial={activeSlide === index ? { y: '5vh' } : { y: 0 }} // Initially off-screen (bottom) for the current slide
                                         animate={activeSlide === index ? { y: 0 } : { y: '5vh' }} // Animate for the current slide
                                         transition={{ duration: 1, type: 'keyframes', stiffness: 120 }}
@@ -93,7 +93,6 @@ function Slider() {
                                     </motion.div>
 
                                 </div>
-                                <button className="text-white text-[40px] mt-16">I’m interested in </button>
 
                                 <div className='flex absolute bottom-[74px] items-end -ml-8'>
                                     <div className='rotate-90'>

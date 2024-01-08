@@ -87,7 +87,7 @@ const Header = () => {
     return (
         <div className="flex flex-col sticky top-0 z-40 bg-primary">
 
-            <header className={`flex items-center md:justify-start md:gap-6 justify-between ${isScrolled ? ' shadow-sm shadow-slate-400 p-1' : 'p-2'} lg:px-[10%] bg-my-white`}>
+            <header className={`flex items-center md:justify-start md:gap-6 justify-between ${isScrolled ? ' shadow-sm shadow-slate-400 ' : ''} lg:px-[10%] bg-my-white`}>
                 <div onClick={handleNav} className='block md:hidden float-start'>
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="black" className="w-6 h-6">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
@@ -98,17 +98,17 @@ const Header = () => {
                 <Image
                     alt="Devpratik Developers"
                     src={Logo}
-                    width={isScrolled ? 60 : 80}
+                    width={isScrolled ? 50 : 70}
                 />
                 <ul className="hidden md:flex gap-10">
                     {navigations.map(nav => (
                         <Link onClick={() => { setSelectedMenu(nav); setVisibleItems(0) }}
                             key={nav.id}
-                            className={` font-medium  ${isScrolled ? 'text-[14px]' : 'text-[16px]'}  py-6 text-my-black hover:text-primary transition-all duration-500 flex items-center gap-2 justify-center`}
+                            className={` font-medium  ${isScrolled ? 'text-[12px]' : 'text-[14px]'}  py-6 text-my-black hover:text-primary transition-all duration-500 flex items-center gap-2 justify-center`}
                             href={nav.path}
                         >
                             {nav.label}
-                            {selectedMenu?.id === nav.id && selectedMenu?.sub && <div className={`absolute ${isScrolled ? 'top-[64px]' : 'top-[84px]'}  z-50`}>
+                            {selectedMenu?.id === nav.id && selectedMenu?.sub && <div className={`absolute ${isScrolled ? 'top-[58px]' : 'top-[63px]'}  z-50`}>
                                 <svg width="28" height="22" viewBox="0 0 28 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M25.1085 6.75L14 21.1803L2.89153 6.75L25.1085 6.75Z" fill="#f4f4f4" stroke="#E1E5ED" />
                                 </svg>
@@ -121,13 +121,13 @@ const Header = () => {
                 {selectedMenu?.sub && !nav &&
                     <motion.div
                         initial={{ opacity: 0, height: 0 }}
-                        animate={{ opacity: selectedMenu?.sub ? 1 : 0, height: selectedMenu?.sub ? 400 : 0 }}
+                        animate={{ opacity: selectedMenu?.sub ? 1 : 0, height: selectedMenu?.sub ? 300 : 0 }}
                         transition={{ duration: 0.3, ease: 'easeIn' }}
-                        ref={subMenuRef} className={`absolute ${isScrolled ? 'top-[70px]' : 'top-[90px]'} w-full left-0 bg-my-black items-center justify-center grid grid-cols-4 gap-10 px-[10%]`}
+                        ref={subMenuRef} className={`absolute ${isScrolled ? 'top-[65px]' : 'top-[70px]'} w-full left-0 bg-my-black items-center justify-center grid grid-cols-4 gap-10 px-[10%]`}
                     >
                         <div />
                         <div
-                            className='flex flex-col gap-16'>
+                            className='flex flex-col gap-12'>
                             {selectedMenu.sub.map((item, index
                             ) => {
                                 return (
@@ -137,7 +137,7 @@ const Header = () => {
                                         initial="hidden"
                                         animate={index < visibleItems ? 'visible' : 'hidden'}
                                     >
-                                        <Link className='text-my-white col-span-1 hover:underline hover:duration-500'
+                                        <Link className='text-my-white text-[14px] col-span-1 hover:underline hover:duration-500'
                                             href={item.link}>
                                             {item.displayName}</Link>
                                     </motion.div>
@@ -154,7 +154,7 @@ const Header = () => {
                     {navigations2.map(nav => (
                         <Link onClick={() => { }}
                             key={nav.id}
-                            className={` font-medium  ${isScrolled ? 'text-[14px]' : 'text-[16px]'}  py-6 text-my-black hover:text-primary transition-all duration-500 flex items-center gap-2`}
+                            className={` font-medium  ${isScrolled ? 'text-[12px]' : 'text-[14px]'}  py-6 text-my-black hover:text-primary transition-all duration-500 flex items-center gap-2`}
                             href={nav.path}
                         >
                             {nav.label}
@@ -163,7 +163,7 @@ const Header = () => {
                 </ul>
 
                 {
-                    isScrolled && <div className='hidden md:flex gap-5 absolute top-[80px] bg-black shadow-md shadow-black rounded-[2px] px-3 py-2 right-[10%]'>
+                    isScrolled && <div className='hidden md:flex gap-5 absolute top-[66px] bg-black shadow-md shadow-black rounded-[2px] px-3 py-2 right-[10%]'>
                         {socials.map((item) => {
                             return (
                                 <Link className='flex rounded-full bg-gray-100 hover:bg-primary p-1 justify-center items-center' id={item.id} href={item.path} target='_blank'>
