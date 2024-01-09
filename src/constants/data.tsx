@@ -13,7 +13,7 @@ export const navigations = [
     {
         id: '1',
         label: 'Who We Are',
-        path: '#',
+        path: '/',
         sub: [
             {
                 id: '1',
@@ -40,7 +40,7 @@ export const navigations = [
     {
         id: '2',
         label: 'Expertise',
-        path: '#',
+        path: '/',
         sub: [
             {
                 id: '1',
@@ -67,12 +67,12 @@ export const navigations = [
     {
         id: '3',
         label: 'Projects',
-        path: ''
+        path: '/'
     },
     {
         id: '4',
         label: 'Reaseach & Insights',
-        path: '#',
+        path: '/',
         sub: [
             {
                 id: '1',

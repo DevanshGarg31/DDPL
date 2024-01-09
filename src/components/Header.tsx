@@ -1,9 +1,10 @@
-import { useEffect, useRef, useState } from 'react';
 import { navigations, navigations2, socials } from '../constants/data';
+import { useEffect, useRef, useState } from 'react';
 import { Variants, motion } from 'framer-motion';
 import Logo from '../assets/images/logo.png';
-import { FaPlus } from "react-icons/fa6";
 import { menuItemType } from '../Home/types';
+import { FaPlus } from "react-icons/fa6";
+import { FaMinus } from 'react-icons/fa';
 
 
 const Header = () => {
@@ -11,6 +12,7 @@ const Header = () => {
     const subMenuRef = useRef<HTMLDivElement>(null);
 
     const [nav, setNav] = useState(false);
+    const [subView, setSubView] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
     const [visibleItems, setVisibleItems] = useState<number>(0);
     const [selectedMenu, setSelectedMenu] = useState<menuItemType | null>();
@@ -101,8 +103,8 @@ const Header = () => {
                         <a
                             onClick={() => { setSelectedMenu(nav); setVisibleItems(0) }}
                             key={nav.id}
-                            className={` font-medium  ${isScrolled ? 'text-[12px]' : 'text-[14px]'}  py-6 text-my-black hover:text-primary transition-all duration-500 flex items-center gap-2 justify-center`}
-                            href={nav.path}
+                            className={` font-medium  ${isScrolled ? 'text-[12px]' : 'text-[14px]'}  py-6 text-my-black hover:text-primary transition-all duration-700 flex items-center gap-2 justify-center`}
+                        // href={nav.path}
                         >
                             {nav.label}
                             {selectedMenu?.id === nav.id && selectedMenu?.sub && <div className={`absolute ${isScrolled ? 'top-[58px]' : 'top-[63px]'}  z-50`}>
@@ -134,7 +136,7 @@ const Header = () => {
                                         initial="hidden"
                                         animate={index < visibleItems ? 'visible' : 'hidden'}
                                     >
-                                        <a className='text-my-white text-[14px] col-span-1 hover:underline hover:duration-500'
+                                        <a className='text-my-white text-[14px] col-span-1 hover:underline hover:duration-700'
                                             href={item.link}>
                                             {item.displayName}</a>
                                     </motion.div>
@@ -151,7 +153,7 @@ const Header = () => {
                     {navigations2.map(nav => (
                         <a onClick={() => { }}
                             key={nav.id}
-                            className={` font-medium  ${isScrolled ? 'text-[12px]' : 'text-[14px]'}  py-6 text-my-black hover:text-primary transition-all duration-500 flex items-center gap-2`}
+                            className={` font-medium  ${isScrolled ? 'text-[12px]' : 'text-[14px]'}  py-6 text-my-black hover:text-primary transition-all duration-700 flex items-center gap-2`}
                             href={nav.path}
                         >
                             {nav.label}
@@ -176,7 +178,7 @@ const Header = () => {
                     </div>
                 }
 
-                <ul className={nav ? 'fixed z-30 flex-col bg-my-white pt-3 left-0 top-0 w-[60%] h-full border-r border-r-gray-900  ease-in-out duration-500' : 'ease-in-out duration-500 fixed left-[-100%]'}>
+                <ul className={nav ? 'fixed z-30 flex-col bg-my-white pt-3 left-0 top-0 w-[60%] h-full border-r border-r-gray-900  ease-in-out duration-700' : 'ease-in-out duration-700 fixed left-[-100%]'}>
                     <div className='flex justify-between items-center pr-[5%]'>
                         <img
                             alt="logo"
@@ -189,12 +191,16 @@ const Header = () => {
                     </div>
                     {navigations.map(nav => (
                         <>
-                            <div key={nav.id} className="p-4 flex justify-between items-center hover:cursor-pointer" onClick={() => { setSelectedMenu(nav); setVisibleItems(0) }}>
-                                <a className={`font-medium text-[14px] py-3 text-my-black `} href={nav.path}>
-                                    {nav.label}</a>
-                                {nav.sub && <FaPlus />}
+                            <div key={nav.id} className="p-4 flex justify-between items-center hover:cursor-pointer"
+                                onClick={() => { setSelectedMenu(nav); setVisibleItems(0); setSubView(!subView) }}>
+                                <a className={`font-medium text-[14px]  text-my-black `}
+                                //href={nav.path}
+                                >
+                                    {nav.label}
+                                </a>
+                                {nav.sub && (subView && (selectedMenu?.sub && selectedMenu.id === nav.id) ? <FaMinus /> : <FaPlus />)}
                             </div>
-                            {selectedMenu?.sub && selectedMenu.id === nav.id &&
+                            {selectedMenu?.sub && selectedMenu.id === nav.id && subView &&
                                 < motion.div
                                     initial={{ opacity: 0, }}
                                     animate={{ opacity: selectedMenu?.sub ? 1 : 0, }}
@@ -211,7 +217,7 @@ const Header = () => {
                                                     key={item.id}
 
                                                 >
-                                                    <a className='text-my-white hover:underline hover:duration-500'
+                                                    <a className='text-my-white hover:underline hover:duration-700'
                                                         href={item.link}>
                                                         {item.displayName}</a>
                                                 </div>
@@ -225,6 +231,15 @@ const Header = () => {
                         </>
                     ))}
 
+                    {navigations2.map(nav => (
+                        <a onClick={() => { }}
+                            key={nav.id}
+                            className={` font-medium  text-[14px] py-4 text-my-black transition-all duration-700  gap-2 p-4 flex justify-between items-center hover:cursor-pointer`}
+                        // href={nav.path}
+                        >
+                            {nav.label}
+                        </a>
+                    ))}
                 </ul>
 
                 <div />
