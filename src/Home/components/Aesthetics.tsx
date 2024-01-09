@@ -26,7 +26,7 @@ const Aesthetics = () => {
     }, [window.scrollY])
 
     return (
-        <div className="relative w-full h-[700px] overflow-hidden bg-[#141414] flex flex-col justify-center items-center">
+        <div className="relative w-full lg:h-[700px] h-[500px] overflow-hidden bg-[#141414] flex flex-col justify-center items-center">
             <video
                 className=" w-[500px] h-[500px] object-cover z-0"
                 autoPlay
@@ -42,14 +42,14 @@ const Aesthetics = () => {
 
                 <p
                     style={{
-                        marginLeft: scrollPosition > 2800 ? top / 2 : isMobile ? -900 : -400,
-                        marginRight: scrollPosition < 2800 ? top / 2 : isMobile ? 900 : 400
+                        marginLeft: scrollPosition > 2800 ? top / 2 : isMobile ? -800 : -400,
+                        marginRight: scrollPosition < 2800 ? top / 2 : isMobile ? 800 : 400
                     }}
                     className={``}>Designing Spaces</p>
                 <p
                     style={{
-                        marginRight: scrollPosition > 2800 ? top / 2 : isMobile ? -900 : -400,
-                        marginLeft: scrollPosition < 2800 ? top / 2 : isMobile ? 900 : 400
+                        marginRight: scrollPosition > 2800 ? top / 2 : isMobile ? -800 : -400,
+                        marginLeft: scrollPosition < 2800 ? top / 2 : isMobile ? 800 : 400
                     }}
                     className="">Defining Lifestyles</p>
             </div>
